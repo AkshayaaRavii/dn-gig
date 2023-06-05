@@ -1,0 +1,16 @@
+<div class="sidebar-slider" [class.sidebar-slide-in]="showSideMenu">
+    <div class="sidebar-content">
+      <div
+        class="row"
+        style="display: flex; flex-direction: row; gap: 2rem; padding: 3px"
+      >
+        <h5>Widgets</h5>
+        <div *ngFor="let item of widgetList" class="col-2">
+          <div class="tool tool-1" id="{{ item.name }}" appDraggable>
+            {{ item.name }}
+          </div>
+          <br />
+        </div>
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,25 @@
+.sidebar-slider {
+  top: 10%;
+  left: 0;
+  bottom: 0;
+  background-color: #ffffff;
+  transform: translateX(-100%);
+  transition: ease-in-out 300ms transform;
+  height: 35.8rem;
+  padding: 0;
+}
+
+.sidebar-slider.sidebar-slide-in {
+  transform: translateX(0%);
+  transition: ease-in-out 600ms transform;
+}
+
+.sidebar-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: row;
+  background-color: lightgray;
+  font-size: 16px;
+  height: 100%;
+}
