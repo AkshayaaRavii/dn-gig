@@ -1,0 +1,23 @@
+.container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  max-width: 100%;
+  margin: 0;
+  background: #ffffff;
+  border-bottom: 1px solid lightgray;
+}
+
+.toggle {
+  background-image: url(/assets/img/menu-icon.svg);
+  padding: 14px;
+  cursor: pointer;
+  background-repeat: no-repeat;
+}
+
+.preview {
+  background-image: url(/assets/img/preview.svg);
+  padding: 14px;
+  cursor: pointer;
+  background-repeat: no-repeat;
+}
