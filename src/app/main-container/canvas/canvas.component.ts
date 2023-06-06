@@ -7,6 +7,7 @@ import {
   ViewContainerRef,
 } from '@angular/core';
 import { ButtonComponent } from 'src/app/widgets/button/button.component';
+import { ContainerComponent } from 'src/app/widgets/container/container.component';
 import { InputComponent } from 'src/app/widgets/input/input.component';
 import { TypographyComponent } from 'src/app/widgets/typography/typography.component';
 @ViewChild('container', { read: ViewContainerRef })
@@ -50,12 +51,12 @@ export class CanvasComponent implements OnInit {
           this.componentFactoryResolver.resolveComponentFactory(
             TypographyComponent
           );
+      } else if (data === 'Container') {
+        componentFactory =
+          this.componentFactoryResolver.resolveComponentFactory(
+            ContainerComponent
+          );
       }
-      // if (data === 'Container') {
-      //   componentFactory =
-      //     this.componentFactoryResolver.resolveComponentFactory(
-
-      //     );
 
       const componentRef =
         componentFactory && this.container.createComponent(componentFactory);
