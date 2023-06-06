@@ -10,6 +10,7 @@ import { WidgetsPropertiesSidenavComponent } from './main-container/widgets-prop
 import { SidenavComponent } from './main-container/sidenav/sidenav.component';
 import { MainContainerModule } from './main-container/main-container.module';
 import { MainContainerComponent } from './main-container/main-container.component';
+import {ButtonComponent} from './widgets/button/button.component'
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { MainContainerComponent } from './main-container/main-container.componen
     WidgetsPropertiesSidenavComponent,
     SidenavComponent,
     MainContainerComponent,
+    ButtonComponent
   ],
   imports: [BrowserModule, AppRoutingModule, NgbModule, MainContainerModule],
   exports: [MainContainerComponent],

@@ -28,24 +28,41 @@ export class CanvasComponent implements OnInit {
     let data = event.dataTransfer && event.dataTransfer.getData('text');
 
     event.preventDefault();
+    var rect = (event.target as HTMLElement).getBoundingClientRect();
+    // var x = event.clientX - rect.left;
+    // var y = event.clientY - rect.top;
     const x1 = event.clientX;
     const y1 = event.clientY;
+    // const x1 = x;
+    // const y1 = y;
     if (data) {
-      const componentFactory =
-        this.componentFactoryResolver.resolveComponentFactory(
-          data === 'Button'
-            ? ButtonComponent
-            : data === 'Input'
-            ? InputComponent
-            : // : data === 'Cards'
-              // ? ContainerComponent
-              TypographyComponent
-        );
-      const componentRef = this.container.createComponent(componentFactory);
+      let componentFactory: any;
+      if (data === 'Button') {
+        componentFactory =
+          this.componentFactoryResolver.resolveComponentFactory(
+            ButtonComponent
+          );
+      } else if (data === 'Input') {
+        componentFactory =
+          this.componentFactoryResolver.resolveComponentFactory(InputComponent);
+      } else if (data === 'Text') {
+        componentFactory =
+          this.componentFactoryResolver.resolveComponentFactory(
+            TypographyComponent
+          );
+      }
+      // if (data === 'Container') {
+      //   componentFactory =
+      //     this.componentFactoryResolver.resolveComponentFactory(
+
+      //     );
+
+      const componentRef =
+        componentFactory && this.container.createComponent(componentFactory);
       componentRef.location.nativeElement.style.position = 'absolute';
       componentRef.location.nativeElement.style.left = x1 + 'px';
       componentRef.location.nativeElement.style.top = y1 + 'px';
-      componentRef.location.nativeElement.id = data;
+      componentRef.location.nativeElement.id = data + '_' + this.getRandomId();
       event.preventDefault();
     } // else {
     //   const draggedElement = data && document.getElementById(data);
@@ -58,5 +75,9 @@ export class CanvasComponent implements OnInit {
     //     draggedElement.style.top = y + 'px';
     //   }
     // }
+  }
+
+  getRandomId() {
+    return Math.random().toString();
   }
 }
