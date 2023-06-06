@@ -10,6 +10,7 @@ import { ButtonComponent } from 'src/app/widgets/button/button.component';
 import { ContainerComponent } from 'src/app/widgets/container/container.component';
 import { InputComponent } from 'src/app/widgets/input/input.component';
 import { TypographyComponent } from 'src/app/widgets/typography/typography.component';
+import { CommonService } from '../../common.service';
 @ViewChild('container', { read: ViewContainerRef })
 @Component({
   selector: 'app-canvas',
@@ -20,7 +21,10 @@ export class CanvasComponent implements OnInit {
   @ViewChild('container', { read: ViewContainerRef })
   container!: ViewContainerRef;
 
-  constructor(private componentFactoryResolver: ComponentFactoryResolver) {}
+  constructor(
+    private componentFactoryResolver: ComponentFactoryResolver,
+    private commonService: CommonService
+  ) {}
 
   ngOnInit(): void {}
 
@@ -46,7 +50,7 @@ export class CanvasComponent implements OnInit {
       } else if (data === 'Input') {
         componentFactory =
           this.componentFactoryResolver.resolveComponentFactory(InputComponent);
-      } else if (data === 'Text') {
+      } else if (data === 'Typography') {
         componentFactory =
           this.componentFactoryResolver.resolveComponentFactory(
             TypographyComponent
@@ -64,7 +68,9 @@ export class CanvasComponent implements OnInit {
       componentRef.location.nativeElement.style.left = x1 + 'px';
       componentRef.location.nativeElement.style.top = y1 + 'px';
       componentRef.location.nativeElement.id = data + '_' + this.getRandomId();
+
       event.preventDefault();
+      this.commonService.selectedWidget$.next({widgetName:data, id:componentRef.location.nativeElement.id});
     } // else {
     //   const draggedElement = data && document.getElementById(data);
     //   const dropzone = event.target as HTMLElement;

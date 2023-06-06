@@ -19,7 +19,7 @@ export class SidenavComponent implements OnInit {
       tooltipText:'Triggers Actions'
     },
     {
-      name: 'Text',
+      name: 'Typography',
       imgSrc: 'assets/img/text.svg',
       tooltipText:'Displays Markdown'
     },

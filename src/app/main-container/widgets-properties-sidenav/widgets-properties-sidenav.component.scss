@@ -15,12 +15,14 @@
 }
 
 .sidebar-content {
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  flex-direction: row;
   background-color: white;
   border-left: 1px solid lightgray;
   font-size: 16px;
   height: 100%;
+}
+
+.empty-properties-card {
+  border: 1px dashed #3e525b;
+  margin: 1rem;
+  padding: 1rem;
 }

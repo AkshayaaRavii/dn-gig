@@ -63,7 +63,6 @@ export class ContainerComponent implements OnInit {
   }
 
   dragEvent(event: MouseEvent, status: number) {
-    console.log(event, status);
     if (status === 1) {
       this.init = { x: event.pageX, width: this.width, height: this.height };
       event.stopPropagation();

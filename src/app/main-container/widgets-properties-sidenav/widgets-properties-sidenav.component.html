@@ -1,3 +1,115 @@
 <div class="sidebar-slider" [class.sidebar-slide-in]="showSideMenu">
-  <div class="sidebar-content">hi</div>
+  <div
+    class="sidebar-content"
+    *ngIf="selectedWidget.widgetName === ''"
+    style="
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      flex-direction: row;
+    "
+  >
+    <div class="empty-properties-card">
+      You haven't added any components yet. Drag and drop components from the
+      left sidebar to configure its properties
+    </div>
+  </div>
+  <div class="sidebar-content" *ngIf="selectedWidget.widgetName !== ''">
+    <div class="p-2">
+      <div class="d-flex p-1 rounded" style="background: rgb(236, 238, 240)">
+        <button
+          class="btn"
+          type="button"
+          [ngStyle]="{
+            'background-color':
+              selectedTab === 'properties' ? '#ffffff' : 'transparent'
+          }"
+          (click)="toggleTab()"
+        >
+          Properties
+        </button>
+        <button
+          class="btn"
+          type="button"
+          [ngStyle]="{
+            'background-color':
+              selectedTab === 'styles' ? '#ffffff' : 'transparent'
+          }"
+          (click)="toggleTab()"
+        >
+          Styles
+        </button>
+      </div>
+    </div>
+    <hr class="m-0" />
+    <div *ngIf="selectedTab === 'properties'">
+      <div>
+        <label class="small p-3 fw-bold">Properties</label>
+        <div class="m-2">
+          <label class="small">Button Text</label>
+          <input
+            class="form-control form-control-sm"
+            [(ngModel)]="buttonText"
+            (ngModelChange)="onChange($event)"
+          />
+        </div>
+
+        <hr class="m-0" />
+      </div>
+      <div>
+        <label class="small p-3 fw-bold">General</label>
+        <div class="m-2">
+          <label class="small">Button Tooltip</label>
+          <input
+            class="form-control form-control-sm"
+            [(ngModel)]="buttonTooltip"
+            (ngModelChange)="onChange($event)"
+          />
+        </div>
+        <hr class="m-0" />
+      </div>
+    </div>
+    <div *ngIf="selectedTab === 'styles'">
+      <div class="m-2">
+        <label class="small">Background Color</label>
+        <input
+          class="form-control form-control-sm"
+          [(ngModel)]="buttonBGColor"
+          (ngModelChange)="onChange($event)"
+        />
+      </div>
+      <div class="m-2">
+        <label class="small">Text Color</label>
+        <input
+          class="form-control form-control-sm"
+          [(ngModel)]="buttonColor"
+          (ngModelChange)="onChange($event)"
+        />
+      </div>
+      <div class="m-2">
+        <label class="small">Border Color</label>
+        <input
+          class="form-control form-control-sm"
+          [(ngModel)]="buttonBorderColor"
+          (ngModelChange)="onChange($event)"
+        />
+      </div>
+      <div class="m-2">
+        <label class="small">Border Radius</label>
+        <input
+          class="form-control form-control-sm"
+          [(ngModel)]="buttonBorderRadius"
+          (ngModelChange)="onChange($event)"
+        />
+      </div>
+      <div class="m-2">
+        <label class="small">Box Shadow</label>
+        <input
+          class="form-control form-control-sm"
+          [(ngModel)]="buttonBoxShadow"
+          (ngModelChange)="onChange($event)"
+        />
+      </div>
+    </div>
+  </div>
 </div>
