@@ -10,14 +10,28 @@
 
 .toggle {
   background-image: url(/assets/img/menu-icon.svg);
-  padding: 14px;
+background-size: 2rem;
   cursor: pointer;
   background-repeat: no-repeat;
+  margin-top: 0.3rem;
 }
 
 .preview {
   background-image: url(/assets/img/preview.svg);
-  padding: 14px;
+  background-size:  1.5rem;
   cursor: pointer;
   background-repeat: no-repeat;
+  margin-top: 0.3rem;
+}
+
+.publish {
+  background-image: url(/assets/img/publish.svg);
+  background-size:  1.5rem;
+  cursor: pointer;
+  background-repeat: no-repeat;
+  margin-top: 0.3rem;
+}
+
+input{
+  border: none;
 }

@@ -12,6 +12,7 @@ import { MainContainerModule } from './main-container/main-container.module';
 import { MainContainerComponent } from './main-container/main-container.component';
 import {ButtonComponent} from './widgets/button/button.component';
 import { ContainerComponent } from './widgets/container/container.component'
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,7 @@ import { ContainerComponent } from './widgets/container/container.component'
     ButtonComponent,
     ContainerComponent
   ],
-  imports: [BrowserModule, AppRoutingModule, NgbModule, MainContainerModule],
+  imports: [BrowserModule, AppRoutingModule, NgbModule, MainContainerModule,FormsModule],
   exports: [MainContainerComponent],
   providers: [],
   bootstrap: [AppComponent],

@@ -10,15 +10,23 @@ export class SidenavComponent implements OnInit {
   widgetList: any[] = [
     {
       name: 'Input',
+      imgSrc: 'assets/img/input.svg',
+      tooltipText:'Text Field for the forms'
     },
     {
       name: 'Button',
+      imgSrc: 'assets/img/button.svg',
+      tooltipText:'Triggers Actions'
     },
     {
       name: 'Text',
+      imgSrc: 'assets/img/text.svg',
+      tooltipText:'Displays Markdown'
     },
     {
       name: 'Container',
+      imgSrc: 'assets/img/grid.svg',
+      tooltipText: 'Wrapper for multiple components',
     },
   ];
   constructor() {}

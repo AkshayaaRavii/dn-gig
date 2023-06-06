@@ -16,11 +16,12 @@
 }
 
 .sidebar-content {
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  flex-direction: row;
-  background-color: lightgray;
+  // display: flex;
+  // align-items: center;
+  // justify-content: space-around;
+  // flex-direction: row;
+  background-color: white;
+  border-right: 1px solid lightgray;
   font-size: 16px;
   height: 100%;
 }
@@ -38,4 +39,33 @@
   right: -5px;
   bottom: -5px;
   position: relative;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  column-gap: 2.5rem;
+  padding: 3px;
+}
+
+.widgets-container {
+  width: 4.5rem;
+  height: 4.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 0.4rem;
+  justify-content: center;
+}
+
+.widgets-container:hover{
+  cursor: move;
+  background-color: lightgrey;
+}
+
+.widget-header {
+  text-transform: capitalize;
+  font-weight: 500;
+  line-height: 12px;
+  font-size: 1rem;
 }
