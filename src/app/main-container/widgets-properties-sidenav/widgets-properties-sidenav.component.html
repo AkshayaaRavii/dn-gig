@@ -16,6 +16,9 @@
   </div>
   <div class="sidebar-content" *ngIf="selectedWidget.widgetName !== ''">
     <div class="p-2">
+      <label class="small fw-bold">{{selectedWidget.widgetName}} - Configurations</label>
+    </div>
+    <div class="p-2">
       <div class="d-flex p-1 rounded" style="background: rgb(236, 238, 240)">
         <button
           class="btn"
@@ -73,7 +76,8 @@
       <div class="m-2">
         <label class="small">Background Color</label>
         <input
-          class="form-control form-control-sm"
+          type="color"
+          class="form-control form-control-color"
           [(ngModel)]="buttonBGColor"
           (ngModelChange)="onChange($event)"
         />
@@ -81,7 +85,8 @@
       <div class="m-2">
         <label class="small">Text Color</label>
         <input
-          class="form-control form-control-sm"
+          type="color"
+          class="form-control form-control-color"
           [(ngModel)]="buttonColor"
           (ngModelChange)="onChange($event)"
         />
@@ -89,7 +94,8 @@
       <div class="m-2">
         <label class="small">Border Color</label>
         <input
-          class="form-control form-control-sm"
+          type="color"
+          class="form-control form-control-color"
           [(ngModel)]="buttonBorderColor"
           (ngModelChange)="onChange($event)"
         />

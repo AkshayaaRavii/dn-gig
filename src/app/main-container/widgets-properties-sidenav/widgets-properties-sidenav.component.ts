@@ -16,9 +16,9 @@ export class WidgetsPropertiesSidenavComponent implements OnInit {
   buttonText: string = 'Hello World!!!';
   buttonTooltip: string = '';
   buttonBoxShadow: string = '';
-  buttonBGColor: string = '';
+  buttonBGColor: string = '#0D6EFD';
   buttonColor: string = '';
-  buttonBorderColor: string = '';
+  buttonBorderColor: string = '#FFFFFF';
   buttonBorderRadius: string = '';
   constructor(private commonService: CommonService) {}
 
