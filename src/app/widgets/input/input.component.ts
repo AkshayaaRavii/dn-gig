@@ -1,3 +1,4 @@
+import { CommonService } from 'src/app/common.service';
 import {
   Component,
   OnInit,
@@ -20,7 +21,11 @@ export class InputComponent implements OnInit {
   yOffset: number = 0;
   currentX: number = 0;
   currentY: number = 0;
-  constructor(private el: ElementRef, private renderer: Renderer2) {}
+  constructor(
+    private el: ElementRef,
+    private renderer: Renderer2,
+    private commonService: CommonService
+  ) {}
   ngOnInit(): void {}
 
   @HostListener('mousedown', ['$event'])
@@ -53,7 +58,6 @@ export class InputComponent implements OnInit {
   @HostListener('mouseup', ['$event'])
   onMouseUp(event: MouseEvent) {
     this.isDragging = false;
-    
   }
 
   private setTranslate(xPos: number = 0, yPos: number = 0) {
@@ -62,5 +66,12 @@ export class InputComponent implements OnInit {
       'transform',
       `translate3d(${xPos}px, ${yPos}px, 0)`
     );
+  }
+
+  onClick(event: any) {
+    this.commonService.selectedWidget$.next({
+      widgetName: 'Input',
+      id: this.el.nativeElement.id,
+    });
   }
 }

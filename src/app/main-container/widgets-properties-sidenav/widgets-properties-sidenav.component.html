@@ -10,8 +10,8 @@
     "
   >
     <div class="empty-properties-card">
-      You haven't added any components yet. Drag and drop components from the
-      left sidebar to configure its properties
+      If You haven't added any components, Drag and drop components from the
+      left sidebar to configure its properties or select the widget to configure
     </div>
   </div>
   <div class="sidebar-content" *ngIf="selectedWidget.widgetName !== ''">
@@ -20,107 +20,115 @@
         <label class="small fw-bold">Widgets Configurations</label>
       </div>
       <div class="col-2 pb-1">
-        <img [src]="'assets/img/delete.svg'" role="button" width="18px" height="18px"  ngbTooltip="Delete Widgets" (click)="deleteWidget($event)"/>
+        <img
+          [src]="'assets/img/delete.svg'"
+          role="button"
+          width="18px"
+          height="18px"
+          ngbTooltip="Delete Widgets"
+          (click)="deleteWidget($event)"
+        />
       </div>
     </div>
-    <div class="p-2">
-      <div class="d-flex p-1 rounded" style="background: rgb(236, 238, 240)">
-        <button
-          class="btn"
-          type="button"
-          [ngStyle]="{
-            'background-color':
-              selectedTab === 'properties' ? '#ffffff' : 'transparent'
-          }"
-          (click)="toggleTab()"
-        >
-          Properties
-        </button>
-        <button
-          class="btn"
-          type="button"
-          [ngStyle]="{
-            'background-color':
-              selectedTab === 'styles' ? '#ffffff' : 'transparent'
-          }"
-          (click)="toggleTab()"
-        >
-          Styles
-        </button>
-      </div>
-    </div>
-    <hr class="m-0" />
-    <div *ngIf="selectedTab === 'properties'">
-      <div>
-        <label class="small p-3 fw-bold">Properties</label>
-        <div class="m-2">
-          <label class="small">Button Text</label>
-          <input
-            class="form-control form-control-sm"
-            [(ngModel)]="buttonText"
-            (ngModelChange)="onChange($event)"
-          />
+    <ng-container *ngIf="selectedWidget.widgetName === 'Button'"
+      ><div class="p-2">
+        <div class="d-flex p-1 rounded" style="background: rgb(236, 238, 240)">
+          <button
+            class="btn"
+            type="button"
+            [ngStyle]="{
+              'background-color':
+                selectedTab === 'properties' ? '#ffffff' : 'transparent'
+            }"
+            (click)="toggleTab()"
+          >
+            Properties
+          </button>
+          <button
+            class="btn"
+            type="button"
+            [ngStyle]="{
+              'background-color':
+                selectedTab === 'styles' ? '#ffffff' : 'transparent'
+            }"
+            (click)="toggleTab()"
+          >
+            Styles
+          </button>
         </div>
+      </div>
+      <hr class="m-0" />
+      <div *ngIf="selectedTab === 'properties'">
+        <div>
+          <label class="small p-3 fw-bold">Properties</label>
+          <div class="m-2">
+            <label class="small">Button Text</label>
+            <input
+              class="form-control form-control-sm"
+              [(ngModel)]="buttonText"
+              (ngModelChange)="onChange($event)"
+            />
+          </div>
 
-        <hr class="m-0" />
+          <hr class="m-0" />
+        </div>
+        <div>
+          <label class="small p-3 fw-bold">General</label>
+          <div class="m-2">
+            <label class="small">Button Tooltip</label>
+            <input
+              class="form-control form-control-sm"
+              [(ngModel)]="buttonTooltip"
+              (ngModelChange)="onChange($event)"
+            />
+          </div>
+          <hr class="m-0" />
+        </div>
       </div>
-      <div>
-        <label class="small p-3 fw-bold">General</label>
+      <div *ngIf="selectedTab === 'styles'">
         <div class="m-2">
-          <label class="small">Button Tooltip</label>
+          <label class="small">Background Color</label>
           <input
-            class="form-control form-control-sm"
-            [(ngModel)]="buttonTooltip"
+            type="color"
+            class="form-control form-control-color"
+            [(ngModel)]="buttonBGColor"
             (ngModelChange)="onChange($event)"
           />
         </div>
-        <hr class="m-0" />
-      </div>
-    </div>
-    <div *ngIf="selectedTab === 'styles'">
-      <div class="m-2">
-        <label class="small">Background Color</label>
-        <input
-          type="color"
-          class="form-control form-control-color"
-          [(ngModel)]="buttonBGColor"
-          (ngModelChange)="onChange($event)"
-        />
-      </div>
-      <div class="m-2">
-        <label class="small">Text Color</label>
-        <input
-          type="color"
-          class="form-control form-control-color"
-          [(ngModel)]="buttonColor"
-          (ngModelChange)="onChange($event)"
-        />
-      </div>
-      <div class="m-2">
-        <label class="small">Border Color</label>
-        <input
-          type="color"
-          class="form-control form-control-color"
-          [(ngModel)]="buttonBorderColor"
-          (ngModelChange)="onChange($event)"
-        />
-      </div>
-      <div class="m-2">
-        <label class="small">Border Radius</label>
-        <input
-          class="form-control form-control-sm"
-          [(ngModel)]="buttonBorderRadius"
-          (ngModelChange)="onChange($event)"
-        />
-      </div>
-      <div class="m-2">
-        <label class="small">Box Shadow</label>
-        <input
-          class="form-control form-control-sm"
-          [(ngModel)]="buttonBoxShadow"
-          (ngModelChange)="onChange($event)"
-        />
-      </div>
-    </div>
+        <div class="m-2">
+          <label class="small">Text Color</label>
+          <input
+            type="color"
+            class="form-control form-control-color"
+            [(ngModel)]="buttonColor"
+            (ngModelChange)="onChange($event)"
+          />
+        </div>
+        <div class="m-2">
+          <label class="small">Border Color</label>
+          <input
+            type="color"
+            class="form-control form-control-color"
+            [(ngModel)]="buttonBorderColor"
+            (ngModelChange)="onChange($event)"
+          />
+        </div>
+        <div class="m-2">
+          <label class="small">Border Radius</label>
+          <input
+            class="form-control form-control-sm"
+            [(ngModel)]="buttonBorderRadius"
+            (ngModelChange)="onChange($event)"
+          />
+        </div>
+        <div class="m-2">
+          <label class="small">Box Shadow</label>
+          <input
+            class="form-control form-control-sm"
+            [(ngModel)]="buttonBoxShadow"
+            (ngModelChange)="onChange($event)"
+          />
+        </div></div
+    ></ng-container>
   </div>
 </div>

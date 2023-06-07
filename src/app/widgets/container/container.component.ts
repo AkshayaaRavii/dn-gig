@@ -6,6 +6,7 @@ import {
   HostListener,
   OnInit,
 } from '@angular/core';
+import { CommonService } from 'src/app/common.service';
 
 const enum Status {
   OFF = 0,
@@ -38,11 +39,13 @@ export class ContainerComponent implements OnInit {
   public status: Status = Status.OFF;
   private mouseClick!: { x: number; y: number; left: number; top: number };
 
-  constructor(private renderer: Renderer2) {}
+  constructor(
+    private renderer: Renderer2,
+    private el: ElementRef,
+    private commonService: CommonService
+  ) {}
 
-  ngOnInit(): void {
-    
-  }
+  ngOnInit(): void {}
 
   ngAfterViewInit() {
     this.loadBox();
@@ -112,5 +115,12 @@ export class ContainerComponent implements OnInit {
   private move() {
     this.left = this.mouseClick.left + (this.mouse.x - this.mouseClick.x);
     this.top = this.mouseClick.top + (this.mouse.y - this.mouseClick.y);
+  }
+
+  onClick(event: any) {
+    this.commonService.selectedWidget$.next({
+      widgetName: 'Container',
+      id: this.el.nativeElement.id,
+    });
   }
 }

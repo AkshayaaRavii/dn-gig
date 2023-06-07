@@ -112,4 +112,11 @@ export class ButtonComponent implements OnInit {
       `translate3d(${xPos}px, ${yPos}px, 0)`
     );
   }
+
+  onClick(event: any) {
+    this.commonService.selectedWidget$.next({
+      widgetName: 'Button',
+      id: this.el.nativeElement.id,
+    });
+  }
 }

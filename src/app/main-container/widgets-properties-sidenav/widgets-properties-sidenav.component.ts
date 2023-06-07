@@ -50,8 +50,10 @@ export class WidgetsPropertiesSidenavComponent implements OnInit {
     });
   }
 
-  deleteWidget(event:any){
+  deleteWidget(event: any) {
     const element = document.getElementById(this.selectedWidget.id);
     element?.remove();
+    this.commonService.selectedWidget$.next({});
+    this.selectedWidget = { widgetName: '', id: '' };
   }
 }

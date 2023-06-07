@@ -7,6 +7,7 @@
   [class.active]="status === 1 || status === 2"
   (mousedown)="dragEvent($event, 2)"
   (window:mouseup)="dragEvent($event, 0)"
+  (click)="onClick($event)"
 >
   <div class="resize-action" (mousedown)="dragEvent($event, 1)"></div>
 </div>
