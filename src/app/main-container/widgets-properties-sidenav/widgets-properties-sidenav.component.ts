@@ -49,4 +49,9 @@ export class WidgetsPropertiesSidenavComponent implements OnInit {
       buttonBorderRadius: this.buttonBorderRadius,
     });
   }
+
+  deleteWidget(event:any){
+    const element = document.getElementById(this.selectedWidget.id);
+    element?.remove();
+  }
 }

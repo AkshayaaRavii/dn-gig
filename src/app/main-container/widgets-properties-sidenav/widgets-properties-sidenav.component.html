@@ -15,8 +15,13 @@
     </div>
   </div>
   <div class="sidebar-content" *ngIf="selectedWidget.widgetName !== ''">
-    <div class="p-2">
-      <label class="small fw-bold">{{selectedWidget.widgetName}} - Configurations</label>
+    <div class="p-2 row">
+      <div class="col-10">
+        <label class="small fw-bold">Widgets Configurations</label>
+      </div>
+      <div class="col-2 pb-1">
+        <img [src]="'assets/img/delete.svg'" role="button" width="18px" height="18px"  ngbTooltip="Delete Widgets" (click)="deleteWidget($event)"/>
+      </div>
     </div>
     <div class="p-2">
       <div class="d-flex p-1 rounded" style="background: rgb(236, 238, 240)">
