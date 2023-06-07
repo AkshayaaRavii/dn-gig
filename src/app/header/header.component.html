@@ -1,0 +1,16 @@
+<div class="container row">
+  <div class="toggle col-1"></div>
+  <div class="col-7">
+    <div class="col-4">
+      <input class="form-control" [(ngModel)]="applicationName" />
+    </div>
+  </div>
+  <div style="display: flex;justify-content: flex-end;vertical-align: middle;" class="col-2">
+    <div class="preview col-2 "></div>
+    <div class="col-6 pt-1" onclick="preview()">Preview</div>
+  </div>
+  <div style="display: flex;justify-content: flex-start;vertical-align: middle;" class="col-2">
+    <div class="publish col-2"></div>
+    <div class="col-6 pt-1" onclick="preview()">Publish</div>
+  </div>
+</div>

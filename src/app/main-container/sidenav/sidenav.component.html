@@ -1,0 +1,18 @@
+<div class="sidebar-slider" [class.sidebar-slide-in]="showSideMenu">
+  <div class="sidebar-content">
+    <div class="row wrapper">
+      <h5 class="m-2 widget-header">Widgets</h5>
+      <div *ngFor="let item of widgetList" class="col-3">
+        <div
+          class="border m-2 widgets-container"
+          id="{{ item.name }}"
+          appDraggable
+          ngbTooltip="{{item.tooltipText}}"
+        >
+          <img [src]="item.imgSrc" width="20px" height="20px" />
+          <span class="small">{{ item.name }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
